@@ -1,0 +1,47 @@
+﻿@model Projeto.Presentation.MVC.Models.DependenteCadastroModel
+
+@{    
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h5>Cadastro de Dependentes</h5>
+Preencha o formulário abaixo para realizar o cadastro.
+<br />
+
+<div class="text-danger">
+    @Html.ValidationSummary()
+</div>
+
+@using (Html.BeginForm())
+{
+    <label>Nome do Dependente</label>
+    @Html.TextBoxFor(model => model.Nome,
+        new {
+            @class = "form-control col-md-4",
+            @placeholder = "Digite aqui"
+            
+        })
+    <br />
+
+    <label>Data de Nascimento:</label>
+    @Html.TextBoxFor(model => model.DataNascimento,
+        new {
+            @class = "form-control col-md-4",
+            @placeholder = "Digite aqui",
+            @type = "date"
+        })
+    <br /> 
+    
+    <label>Selecione o Cliente: </label>
+    @Html.DropDownListFor(model => model.IdCliente,
+        Model.ListagemDeClientes, "Selecione uma opção",
+        new{
+            @class = "form-control col-md-4"
+        })
+    <br />
+
+
+    <input type="submit" class="btn btn-success" value="Realizar Cadastro" />
+}
+
+

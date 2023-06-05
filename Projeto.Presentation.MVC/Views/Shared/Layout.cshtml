@@ -1,0 +1,92 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CRUD MVC</title>
+
+
+    <!-- CSS do Bootstrap -->
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Projeto MVC</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Home/Index">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gerenciar Clientes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/Cliente/Cadastro">Cadastrar Clientes</a>
+                        <a class="dropdown-item" href="/Cliente/Consulta">Consultar Clientes</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gerenciar Dependentes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/Dependente/Cadastro">Cadastrar Dependentes</a>
+                        <a class="dropdown-item" href="/Dependente/Consulta">Consultar Dependentes</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container mt-3">
+
+        <h3>Sistema de Controle de Clientes</h3>
+        <p>Projeto MVC</p>
+        <ul>
+            <li><a href="/Cliente/Cadastro">Cadastrar Cliente</a></li>
+            <li><a href="/Cliente/Consulta">Consultar Cliente</a></li>
+        </ul>
+        <hr/>
+
+        @if (TempData["MensagemSucesso"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>@TempData["MensagemSucesso"]</strong>
+                <button type="button" class="close" data-dismiss="alert"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        @if (TempData["MensagemErro"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>@TempData["MensagemErro"]</strong>
+                <button type="button" class="close" data-dismiss="alert"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        @RenderBody()
+
+    </div>
+    <script src="~/js/jquery-3.7.0.min.js"></script>    
+    <script src="~/js/bootstrap.js"></script>
+  
+
+</body>
+</html>
