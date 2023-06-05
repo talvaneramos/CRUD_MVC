@@ -1,4 +1,4 @@
-# Cadastro de produto
+# Projeto MVC
 Objetivo foi realizar um CRUD com as operações(Cadastrar/Atualizar/Deletar/Consultar) com padrão MVC para cliente e seus dependentes. 
 
 ### Modelagem
